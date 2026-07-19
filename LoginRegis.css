@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600&family=Great+Vibes&display=swap');
+
+:root{
+    --gold:#C69B3D;
+    --maroon:#800020;
+    --black:#111;
+    --cream:#F5F2EE;
+    --white:#fff;
+}
+
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* BACKGROUND */
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px 20px;
+
+    font-family:'Manrope',sans-serif;
+    color:var(--black);
+
+    position:relative;
+}
+
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(30,30,30,.45),
+        rgba(60,40,30,.55)
+    ),
+    url("leather.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    z-index:-1;
+}
+
+
+
+/* MAIN CARD */
+.container{
+
+    width:100%;
+    max-width:450px;
+
+    padding:40px;
+
+    background:rgba(255,255,255,.95);
+
+    border:1px solid rgba(198,155,61,.6);
+
+    border-radius:25px;
+
+    text-align:center;
+
+    position:relative;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.15);
+
+}
+
+
+.container::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:12px;
+
+    border:1px solid rgba(198,155,61,.25);
+
+    border-radius:18px;
+
+    pointer-events:none;
+
+}
+
+
+
+/* LOGO */
+.logo{
+
+    width:100px;
+    height:100px;
+
+    margin:0 auto 25px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:3px solid var(--gold);
+
+    background:var(--black);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.2);
+
+}
+
+
+.logo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+}
+
+
+
+/* BRAND */
+.brand-title{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:72px;
+
+    font-weight:400;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+
+    background:
+    linear-gradient(
+        90deg,
+        #8B6B1F,
+        #C9A227,
+        #F5E6A3,
+        #D4AF37,
+        #8B6B1F
+    );
+
+
+    background-size:300% auto;
+
+
+    background-clip:text;
+    color:transparent;
+
+
+    animation:goldShine 6s linear infinite;
+
+
+}
+
+
+
+@keyframes goldShine{
+
+    from{
+        background-position:0% center;
+    }
+
+    to{
+        background-position:300% center;
+    }
+
+}
+
+
+
+/* HEADINGS */
+
+h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:var(--maroon);
+
+    font-size:24px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+
+}
+
+
+h2::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:2px;
+    background:var(--gold);
+    margin:12px auto;
+
+}
+
+
+
+h3{
+
+    font-family:'Cormorant Garamond',serif;
+    color:#666;
+    font-size:20px;
+    margin-bottom:25px;
+
+}
+
+
+
+/* INPUTS */
+
+.input-group{
+    text-align:left;
+    margin-bottom:18px;
+
+}
+
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+
+}
+
+
+
+input,
+select{
+    width:100%;
+    padding:13px 15px;
+    border:1px solid #ccc;
+    border-radius:12px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+
+}
+
+
+
+input:focus,
+select:focus{
+    border-color:var(--gold);
+    box-shadow:
+    0 0 8px rgba(198,155,61,.35);
+
+}
+
+
+/* BUTTON */
+
+.login-btn,
+button{
+
+    width:100%;
+    padding:14px;
+    margin-top:20px;
+    border:none;
+    border-radius:12px;
+    background:var(--maroon);
+    color:white;
+    font-weight:600;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.login-btn:hover,
+button:hover{
+    background:var(--black);
+    transform:translateY(-2px);
+
+}
+
+
+/* LINKS */
+
+a{
+    display:block;
+    margin-top:20px;
+    color:var(--maroon);
+    text-decoration:none;
+    font-weight:600;
+}
+
+
+
+a:hover{
+    color:var(--gold);
+}
+
+.login-btn{
+    display:block;
+    width:100%;
+    padding:14px;
+    margin-top:20px;
+
+    border-radius:12px;
+    background:var(--maroon);
+    color:white;
+
+    text-align:center;
+    text-decoration:none;
+
+    font-weight:600;
+    letter-spacing:1px;
+
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:var(--black);
+    transform:translateY(-2px);
+}
