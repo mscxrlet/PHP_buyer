@@ -1,0 +1,926 @@
+/* ========================================== ROOT VARIABLES ========================================== */
+
+:root{
+    --maroon:#6A1E2C;
+    --gold:#C69B3D;
+    --black:#111;
+    --white:#fff;
+    --cream:#F8F6F2;
+    --gray:#E7E7E7;
+
+    --shadow-light:0 10px 30px rgba(0,0,0,.10);
+    --shadow-medium:0 15px 40px rgba(0,0,0,.18);
+    --shadow-dark:0 20px 50px rgba(0,0,0,.28);
+
+    --transition:.35s ease;
+}
+
+/* ========================================== RESET ========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    overflow-x:hidden;
+    line-height:1.6;
+    color:var(--white);
+    font-family:'Poppins',sans-serif;
+}
+
+img{
+    display:block;
+    width:100%;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    background:none;
+    font:inherit;
+}
+
+section{
+    width:100%;
+}
+
+/* ========================================== NAVBAR ========================================== */
+
+.navbar{
+    position:fixed;
+    inset:0 0 auto;
+    z-index:9999;
+
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+
+    width:100%;
+    height:70px;
+    padding:0 55px;
+
+    background:rgba(17,17,17,.94);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(198,155,61,.08);
+}
+
+/* ========================================== LOGO ========================================== */
+
+.logo{
+    display:flex;
+    align-items:center;
+    justify-self:start;
+}
+
+.logo img{
+    width:52px;
+    transition:var(--transition);
+}
+
+.logo img:hover{
+    transform:scale(1.05);
+}
+
+/* ========================================== NAVIGATION LINKS ========================================== */
+
+.nav-links{
+    display:flex;
+    justify-self:center;
+    align-items:center;
+    gap:55px;
+    list-style:none;
+}
+
+.nav-links li{
+    position:relative;
+}
+
+.nav-links a{
+    position:relative;
+    color:var(--white);
+    font:500 13px 'Cinzel',serif;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    transition:var(--transition);
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:var(--gold);
+    transition:var(--transition);
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+/* ========================================== NAV ICONS ========================================== */
+
+.nav-icons{
+    display:flex;
+    justify-self:end;
+    align-items:center;
+    gap:24px;
+}
+
+.nav-icons a,
+.nav-icons button{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:var(--white);
+    font-size:18px;
+    transition:.3s ease;
+}
+
+.nav-icons a:hover,
+.nav-icons button:hover{
+    color:var(--gold);
+    transform:translateY(-2px);
+}
+
+/* ========================================== SEARCH ========================================== */
+
+.search-container{
+    display:flex;
+    align-items:center;
+    position:relative;
+}
+
+.search-toggle{
+    width:40px;
+    height:40px;
+}
+
+.search-input{
+    width:0;
+    opacity:0;
+    margin-left:0;
+    padding:9px 0;
+
+    border:none;
+    outline:none;
+    border-radius:30px;
+
+    color:#fff;
+    background:rgba(255,255,255,.08);
+    font-size:14px;
+
+    transition:
+        width .35s ease,
+        opacity .25s ease,
+        padding .35s ease,
+        margin .35s ease;
+}
+
+.search-input::placeholder{
+    color:rgba(255,255,255,.6);
+}
+
+.search-container.active .search-input{
+    width:220px;
+    opacity:1;
+    margin-left:10px;
+    padding:9px 16px;
+}
+
+/* ========================================== DROPDOWN ========================================== */
+
+.dropdown{
+    position:relative;
+}
+
+.dropdown-toggle{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.dropdown-toggle i{
+    color:var(--gold);
+    font-size:10px;
+    transition:var(--transition);
+}
+
+.dropdown.active .dropdown-toggle i{
+    transform:rotate(180deg);
+}
+
+/* ========================================== DROPDOWN MENU ========================================== */
+
+.dropdown-menu{
+    position:absolute;
+    top:calc(100% + 18px);
+    left:50%;
+    transform:translate(-50%,15px);
+
+    min-width:260px;
+    padding:12px 0;
+
+    list-style:none;
+    background:rgba(20,20,20,.97);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(198,155,61,.25);
+    border-radius:18px;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.28),
+        0 0 0 1px rgba(255,255,255,.03);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease,
+        visibility .35s;
+
+    z-index:99999;
+}
+
+.dropdown-menu::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:20px;
+
+    width:60px;
+    height:2px;
+
+    background:var(--gold);
+    border-radius:20px;
+}
+
+.dropdown.active .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translate(-50%,0);
+}
+
+.dropdown-menu li:not(:last-child){
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.dropdown-menu li a{
+    display:flex;
+    align-items:center;
+    padding:15px 22px;
+
+    color:#F2F2F2;
+    font:13px 'Poppins',sans-serif;
+    letter-spacing:1px;
+
+    transition:.3s ease;
+}
+
+.dropdown-menu li a:hover{
+    color:var(--gold);
+    background:rgba(198,155,61,.08);
+    padding-left:30px;
+}
+/* ========================================== HERO ========================================== */
+
+.hero{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:100%;
+    height:100vh;
+
+    overflow:visible;
+}
+
+/* ========================================== HERO BACKGROUND ========================================== */
+
+.hero img{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+/* ========================================== HERO OVERLAY ========================================== */
+
+.overlay{
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        to right,
+        rgba(17,17,17,.82) 15%,
+        rgba(17,17,17,.45) 55%,
+        rgba(17,17,17,.75) 100%
+    );
+
+    z-index:1;
+}
+
+/* ========================================== HERO CONTENT ========================================== */
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    width:min(90%,700px);
+    margin-left:8%;
+    margin-right:auto;
+
+    color:var(--white);
+}
+
+/* ========================================== HERO TITLE ========================================== */
+
+.hero-content h1{
+    padding-top:80px;
+    margin-bottom:25px;
+
+    font:700 clamp(3.5rem,7vw,6rem) 'Cormorant Garamond',serif;
+    line-height:1.05;
+    letter-spacing:1px;
+}
+
+/* ========================================== HERO DESCRIPTION ========================================== */
+
+.hero-content p{
+    max-width:560px;
+    margin-bottom:45px;
+
+    color:var(--gray);
+    font-size:1.1rem;
+    font-weight:300;
+    line-height:1.9;
+}
+
+/* ========================================== CTA BUTTON ========================================== */
+
+.cta{
+    display:inline-flex;
+    align-items:center;
+    gap:15px;
+
+    color:var(--gold);
+    background:none;
+
+    font-size:.9rem;
+    font-weight:600;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    transition:var(--transition);
+}
+
+.cta svg{
+    fill:var(--gold);
+    transform:translateX(-8px);
+    transition:var(--transition);
+}
+
+.cta:hover{
+    color:var(--white);
+}
+
+.cta:hover svg{
+    fill:var(--white);
+    transform:translateX(0);
+}
+
+/* ========================================== CTA UNDERLINE ========================================== */
+
+.hover-underline-animation{
+    position:relative;
+    padding-bottom:8px;
+}
+
+.hover-underline-animation::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:2px;
+
+    background:var(--gold);
+
+    transform:scaleX(0);
+    transform-origin:right;
+
+    transition:transform .3s ease;
+}
+
+.cta:hover .hover-underline-animation::after{
+    transform:scaleX(1);
+    transform-origin:left;
+}
+/* ========================================== CATEGORIES ========================================== */
+
+.categories{
+    padding:0 5% 100px;
+    background:var(--cream);
+}
+
+.section-divider{
+    width:1000px;
+    height:2px;
+    margin:0 auto 30px;
+
+    background:linear-gradient(
+        to right,
+        transparent,
+        #C9A14A,
+        #E6C878,
+        #C9A14A,
+        transparent
+    );
+
+    border-radius:50px;
+}
+
+.categories h1{
+    margin-bottom:40px;
+
+    color:var(--maroon);
+    text-align:center;
+    font:700 clamp(2.8rem,5vw,4rem) 'Cormorant Garamond',serif;
+    letter-spacing:2px;
+}
+
+/* ========================================== CATEGORY GRID ========================================== */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+
+    max-width:1400px;
+    margin:0 auto;
+}
+
+/* ========================================== CATEGORY CARD ========================================== */
+
+.category-card{
+    position:relative;
+    display:block;
+
+    height:180px;
+
+    overflow:hidden;
+    border-radius:22px;
+
+    background:var(--white);
+    box-shadow:0;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.category-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-medium);
+}
+
+/* ========================================== CATEGORY IMAGE ========================================== */
+
+.category-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    transition:
+        transform .45s ease,
+        filter .45s ease;
+}
+
+.category-card:hover img{
+    transform:scale(1.08);
+    filter:brightness(.55);
+}
+
+/* ========================================== CATEGORY OVERLAY ========================================== */
+
+.category-overlay{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    background:rgba(106,30,44,0);
+
+    transition:
+        background .35s ease,
+        opacity .35s ease;
+}
+
+.category-card:hover .category-overlay{
+    opacity:1;
+    background:rgba(106,30,44,.55);
+}
+
+/* ========================================== CATEGORY TITLE ========================================== */
+
+.category-overlay h2{
+    color:var(--white);
+
+    font:600 1.3rem 'Cinzel',serif;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    opacity:0;
+    transform:translateY(18px);
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+}
+
+.category-card:hover .category-overlay h2{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ========================================== PRODUCT BACKGROUND ========================================== */
+
+.product-bg{
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.35),
+            rgba(255,255,255,.35)
+        ),
+        url("wavy.jpeg") center/cover no-repeat;
+
+    border-radius:30px;
+}
+
+.product-bg > *{
+    position:relative;
+    z-index:2;
+}
+
+/* ========================================== NEW ARRIVALS ========================================== */
+
+.new-products{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+    padding:0 8%;
+
+    background:var(--white);
+}
+
+/* ========================================== FEATURED PRODUCT ========================================== */
+
+.featured-product{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+
+    width:100%;
+    max-width:1500px;
+    height:90vh;
+
+    overflow:hidden;
+    border-radius:30px;
+
+    box-shadow:var(--shadow-medium);
+}
+
+/* ========================================== FEATURED IMAGE ========================================== */
+
+.featured-image{
+    overflow:hidden;
+}
+
+.featured-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.6s ease;
+}
+
+.featured-product:hover .featured-image img{
+    transform:scale(1.05);
+}
+
+/* ========================================== PRODUCT INFO ========================================== */
+
+.featured-info{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:40px;
+}
+
+.featured-badge{
+    width:max-content;
+
+    padding:8px 18px;
+    margin-bottom:15px;
+
+    background:var(--maroon);
+    color:var(--white);
+
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+.featured-info h1{
+    margin-bottom:20px;
+
+    color:var(--black);
+
+    font:700 56px/1.1 'Cormorant Garamond',serif;
+}
+
+.featured-category{
+    margin-bottom:15px;
+
+    color:var(--gold);
+
+    font-size:18px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.featured-info p{
+    margin-bottom:15px;
+
+    color:#666;
+
+    font-size:16px;
+    line-height:1.6;
+}
+
+.featured-price{
+    margin-bottom:15px;
+
+    color:var(--maroon);
+
+    font-size:30px;
+    font-weight:600;
+}
+
+.featured-btn{
+    width:220px;
+    height:60px;
+
+    background:var(--maroon);
+    color:var(--white);
+
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    transition:.35s ease;
+}
+
+.featured-btn:hover{
+    background:var(--gold);
+    color:var(--black);
+}
+
+/* ========================================== PRODUCT FOOTER ========================================== */
+
+.product-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.product-price{
+    color:var(--maroon);
+
+    font-size:1.2rem;
+    font-weight:600;
+}
+
+/* ========================================== PRODUCT BUTTON ========================================== */
+
+.product-btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+    color:var(--white);
+
+    transition:var(--transition);
+}
+
+.product-btn:hover{
+    background:var(--maroon);
+    transform:rotate(90deg);
+}
+/* ========================================== TAGLINE ========================================== */
+
+.tagline{
+    padding:0 8% 50px;
+    background:var(--cream);
+}
+
+.tagline-container{
+    max-width:900px;
+    margin:auto;
+
+    text-align:center;
+}
+
+.tagline-subtitle{
+    margin-bottom:20px;
+
+    color:var(--gold);
+
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.tagline h2{
+    margin-bottom:25px;
+
+    color:var(--maroon);
+
+    font:700 clamp(2.8rem,5vw,4.5rem)/1.15 'Cormorant Garamond',serif;
+}
+
+.tagline-text{
+    max-width:700px;
+    margin:auto;
+
+    color:#666;
+
+    font-size:18px;
+    line-height:1.9;
+}
+
+/* ========================================== FOOTER ========================================== */
+
+.footer{
+    padding:0 8% 30px;
+
+    background:var(--black);
+    color:var(--white);
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1.5fr;
+    gap:60px;
+
+    max-width:1400px;
+    margin:auto;
+}
+
+/* ========================================== FOOTER BRAND ========================================== */
+
+.footer-brand h2{
+    margin-bottom:20px;
+
+    color:var(--gold);
+
+    font:700 42px 'Cormorant Garamond',serif;
+}
+
+.footer-brand p{
+    max-width:380px;
+
+    color:#cfcfcf;
+
+    line-height:1.9;
+}
+
+/* ========================================== FOOTER LINKS ========================================== */
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.footer-links h3,
+.footer-contact h3{
+    margin-bottom:20px;
+
+    color:var(--gold);
+
+    font:16px 'Cinzel',serif;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.footer-links a{
+    color:#d8d8d8;
+
+    transition:var(--transition);
+}
+
+.footer-links a:hover{
+    padding-left:8px;
+    color:var(--gold);
+}
+
+/* ========================================== FOOTER CONTACT ========================================== */
+
+.footer-contact p{
+    margin-bottom:10px;
+
+    color:#d8d8d8;
+}
+
+/* ========================================== FOOTER SOCIAL ========================================== */
+
+.footer-social{
+    display:flex;
+    gap:15px;
+
+    margin-top:25px;
+}
+
+.footer-social a{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:42px;
+    height:42px;
+
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:50%;
+
+    color:var(--white);
+
+    transition:var(--transition);
+}
+
+.footer-social a:hover{
+    background:var(--gold);
+    border-color:var(--gold);
+
+    color:var(--black);
+
+    transform:translateY(-3px);
+}
+
+/* ========================================== FOOTER BOTTOM ========================================== */
+
+.footer-bottom{
+    margin-top:60px;
+    padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.12);
+
+    text-align:center;
+}
+
+.footer-bottom p{
+    color:#999;
+
+    font-size:14px;
+}
