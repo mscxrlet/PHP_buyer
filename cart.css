@@ -1,0 +1,554 @@
+/* ==========================================================
+                        CART PAGE
+========================================================== */
+
+.cart-page{
+    width:100%;
+    min-height:100vh;
+    padding:120px 8% 80px;
+    background:var(--cream);
+}
+
+/* ==========================================================
+                        PAGE HEADING
+========================================================== */
+
+.cart-heading{
+    max-width:800px;
+    margin:0 auto 70px;
+    text-align:center;
+}
+
+.cart-heading span{
+    display:inline-block;
+    margin-bottom:12px;
+    font:600 13px "Cinzel",serif;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--gold);
+}
+
+.cart-heading h1{
+    margin-bottom:18px;
+    font:700 clamp(3.5rem,6vw,5rem) "Cormorant Garamond",serif;
+    color:var(--maroon);
+}
+
+.cart-heading p{
+    max-width:650px;
+    margin:auto;
+    color:#666;
+    font-size:17px;
+    line-height:1.8;
+}
+
+/* ==========================================================
+                        CART LAYOUT
+========================================================== */
+
+.cart-layout{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 380px;
+    gap:35px;
+    align-items:start;
+}
+
+/* ==========================================================
+                        CART ITEMS
+========================================================== */
+
+.cart-items{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.cart-item{
+    display:grid;
+    grid-template-columns:100px 1fr auto auto auto;
+    align-items:center;
+    gap:20px;
+    padding:18px;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+    transition:var(--transition);
+}
+
+.cart-item:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 40px rgba(0,0,0,.12);
+}
+
+/* ==========================================================
+                        PRODUCT IMAGE
+========================================================== */
+
+.cart-item img{
+    width:100px;
+    aspect-ratio:1;
+    object-fit:cover;
+    border-radius:14px;
+}
+
+/* ==========================================================
+                        PRODUCT INFO
+========================================================== */
+
+.cart-category{
+    display:block;
+    margin-bottom:8px;
+    color:var(--gold);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.cart-info h3{
+    margin-bottom:8px;
+    font:700 26px "Cormorant Garamond",serif;
+    color:var(--maroon);
+}
+
+.cart-price{
+    color:#777;
+    font-size:15px;
+}
+
+/* ==========================================================
+                        QUANTITY
+========================================================== */
+
+.cart-quantity{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:40px;
+    border:1px solid #ddd;
+    border-radius:50px;
+    overflow:hidden;
+    background:#fff;
+}
+
+.cart-quantity button{
+    width:38px;
+    height:100%;
+    border:none;
+    background:#f8f8f8;
+    color:var(--maroon);
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:var(--transition);
+}
+
+.cart-quantity button:hover{
+    background:var(--gold);
+    color:#fff;
+}
+
+.cart-quantity .qty{
+    width:45px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#fff;
+    color:var(--maroon);
+    font-size:16px;
+    font-weight:600;
+}
+
+/* ==========================================================
+                        ITEM TOTAL
+========================================================== */
+
+.cart-total{
+    color:var(--maroon);
+    font-size:18px;
+    font-weight:700;
+}
+
+/* ==========================================================
+                        REMOVE BUTTON
+========================================================== */
+
+.remove-item{
+    width:42px;
+    aspect-ratio:1;
+    border:none;
+    border-radius:50%;
+    background:#fff3f3;
+    color:#d62828;
+    cursor:pointer;
+    transition:var(--transition);
+}
+
+.remove-item:hover{
+    background:#d62828;
+    color:#fff;
+}
+/* ==========================================================
+                    ORDER SUMMARY
+========================================================== */
+
+.cart-summary{
+    position:sticky;
+    top:100px;
+    width:100%;
+    padding:30px;
+    background:#fff;
+    border-radius:22px;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.cart-summary h2{
+    margin-bottom:30px;
+    font:700 34px "Cormorant Garamond",serif;
+    color:var(--maroon);
+}
+
+.summary-row,
+.summary-total{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.summary-row{
+    margin-bottom:18px;
+    color:#666;
+    font-size:16px;
+}
+
+.summary-total{
+    margin-top:20px;
+    color:var(--maroon);
+    font-size:22px;
+    font-weight:700;
+}
+
+.cart-summary hr{
+    margin:25px 0;
+    border:none;
+    border-top:1px solid #e5e5e5;
+}
+
+/* ==========================================================
+                    BUTTONS
+========================================================== */
+
+.checkout-btn,
+.shop-btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:52px;
+    border:none;
+    border-radius:40px;
+    background:var(--maroon);
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:var(--transition);
+}
+
+.checkout-btn{
+    margin-top:30px;
+}
+
+.shop-btn{
+    width:auto;
+    padding:0 40px;
+}
+
+.checkout-btn:hover,
+.shop-btn:hover{
+    background:var(--gold);
+    color:#111;
+}
+
+.continue-shopping{
+    display:block;
+    margin-top:18px;
+    text-align:center;
+    color:var(--maroon);
+    font-weight:600;
+    transition:var(--transition);
+}
+
+.continue-shopping:hover{
+    color:var(--gold);
+}
+
+/* ==========================================================
+                    EMPTY CART
+========================================================== */
+
+.cart-empty{
+    max-width:650px;
+    margin:120px auto;
+    text-align:center;
+}
+
+.cart-empty i{
+    margin-bottom:25px;
+    color:var(--gold);
+    font-size:70px;
+}
+
+.cart-empty h2{
+    margin-bottom:15px;
+    font:700 44px "Cormorant Garamond",serif;
+    color:var(--maroon);
+}
+
+.cart-empty p{
+    margin-bottom:35px;
+    color:#666;
+    line-height:1.8;
+}
+/* ==========================================================
+                    CHECKOUT ACCORDION
+========================================================== */
+
+.checkout-section{
+    margin-bottom:20px;
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.checkout-toggle{
+    width:100%;
+    padding:20px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#fff;
+    border:none;
+    cursor:pointer;
+    color:var(--maroon);
+    font-size:18px;
+    font-weight:600;
+}
+
+.checkout-toggle span{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.arrow{
+    transition:var(--transition);
+}
+
+.checkout-section.active .arrow{
+    transform:rotate(180deg);
+}
+
+.checkout-content{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height var(--transition);
+}
+
+.checkout-section.active .checkout-content{
+    max-height:600px;
+}
+
+.checkout-inner{
+    padding:0 30px;
+}
+
+.checkout-section.active .checkout-inner{
+    padding:20px 30px 30px;
+}
+
+/* ==========================================================
+                        FORM
+========================================================== */
+
+.input-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.input-grid input{
+    width:100%;
+    padding:14px 18px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    outline:none;
+    transition:var(--transition);
+}
+
+.input-grid input:focus{
+    border-color:var(--gold);
+}
+
+/* ==========================================================
+                    PAYMENT METHODS
+========================================================== */
+
+.payment-option{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:18px 0;
+    border-bottom:1px solid #eee;
+    cursor:pointer;
+    color:#333;
+    font-size:16px;
+    transition:var(--transition);
+}
+
+.payment-option:last-child{
+    border-bottom:none;
+}
+
+.payment-option:hover{
+    color:var(--maroon);
+}
+
+.payment-option i{
+    color:var(--maroon);
+    font-size:20px;
+}
+
+/* ==========================================================
+                    ORDER REVIEW
+========================================================== */
+
+.review-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:18px 0;
+    color:#555;
+    font-size:16px;
+}
+
+.review-row.total{
+    margin-top:25px;
+    color:var(--maroon);
+    font-size:22px;
+    font-weight:700;
+}
+
+.checkout-content hr{
+    margin:20px 0;
+    border:none;
+    border-top:1px solid #e5e5e5;
+}
+
+.place-order{
+    width:100%;
+    height:52px;
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:var(--maroon);
+    border:none;
+    border-radius:40px;
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:var(--transition);
+}
+
+.place-order:hover{
+    background:var(--gold);
+    color:#111;
+}
+/* ==========================================================
+                    CART ACTIONS
+========================================================== */
+
+.cart-actions{
+    display:none;
+}
+
+/* ==========================================================
+                    SHARED BUTTON STYLES
+========================================================== */
+
+/* Large pill buttons used throughout the cart */
+.checkout-btn,
+.place-order,
+.shop-btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    height:52px;
+    border:none;
+    border-radius:40px;
+    background:var(--maroon);
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:var(--transition);
+}
+
+.checkout-btn,
+.place-order{
+    width:100%;
+    margin-top:30px;
+}
+
+.shop-btn{
+    width:auto;
+    padding:0 40px;
+}
+
+.checkout-btn:hover,
+.place-order:hover,
+.shop-btn:hover{
+    background:var(--gold);
+    color:#111;
+}
+
+/* ==========================================================
+                SECONDARY BUTTON
+========================================================== */
+
+.continue-shopping{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:240px;
+    height:52px;
+    margin-top:18px;
+
+    border:2px solid var(--maroon);
+    border-radius:40px;
+
+    color:var(--maroon);
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    transition:var(--transition);
+}
+
+.continue-shopping:hover{
+    background:var(--maroon);
+    color:#fff;
+}
+
