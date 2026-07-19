@@ -1,0 +1,320 @@
+/* ==========================================================
+                        NOTIFICATION PAGE
+========================================================== */
+
+.notif-hero{
+    width:100%;
+    padding:140px 8% 60px;
+    text-align:center;
+    background:var(--cream);
+}
+
+.notif-hero h1{
+    margin-bottom:15px;
+    font:700 4rem "Cormorant Garamond", serif;
+    color:var(--maroon);
+}
+
+.notif-hero p{
+    position:relative;
+    z-index:1;
+    max-width:700px;
+    margin:auto;
+    color:#666;
+    font-size:1rem;
+    line-height:1.8;
+}
+
+/* ==========================================================
+                    NOTIFICATION WRAPPER
+========================================================== */
+
+.notif-wrapper{
+    width:100%;
+    min-height:70vh;
+    padding:50px 8% 80px;
+    background:#faf8f5;
+}
+
+/* ==========================================================
+                            TABS
+========================================================== */
+
+.notif-tabs{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:45px;
+}
+
+.tab-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:14px 24px;
+
+    border:none;
+    border-radius:50px;
+
+    background:#fff;
+    color:var(--maroon);
+
+    font-size:.95rem;
+    font-weight:500;
+
+    cursor:pointer;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.tab-btn:hover{
+    transform:translateY(-3px);
+}
+
+.tab-btn.active{
+    background:var(--maroon);
+    color:#fff;
+}
+
+/* ==========================================================
+                        TAB CONTENT
+========================================================== */
+
+.tab-content{
+    display:none;
+    animation:fade .35s ease;
+}
+
+.tab-content.active{
+    display:block;
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================================================
+                        PURCHASE CARD
+========================================================== */
+
+.purchase-card{
+    display:flex;
+    align-items:center;
+    gap:25px;
+
+    margin-bottom:20px;
+    padding:22px;
+
+    background:#fff;
+    border-radius:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.07);
+    transition:.3s;
+}
+
+.purchase-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.purchase-card img{
+    width:120px;
+    height:120px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+    background:#eee;
+}
+
+.purchase-info{
+    flex:1;
+}
+
+.purchase-info h3{
+    margin-bottom:8px;
+    font:700 1.8rem "Cormorant Garamond", serif;
+    color:var(--maroon);
+}
+
+.purchase-info p{
+    margin-bottom:12px;
+    color:#666;
+    line-height:1.7;
+}
+
+.purchase-date{
+    color:#999;
+    font-size:.9rem;
+}
+
+.purchase-side{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:18px;
+}
+
+/* ==========================================================
+                        STATUS BADGES
+========================================================== */
+
+.status{
+    padding:8px 18px;
+    border-radius:50px;
+    color:#fff;
+    font-size:.85rem;
+    font-weight:600;
+}
+
+.waiting{background:#d39b3f;}
+.processing{background:#7a5b46;}
+.shipped{background:#2d87c8;}
+.receive{background:#8c6f4d;}
+.complete{background:#3d9a5a;}
+
+/* ==========================================================
+                        ACTION BUTTON
+========================================================== */
+
+.action-btn{
+    padding:11px 24px;
+
+    border:none;
+    border-radius:50px;
+
+    background:var(--maroon);
+    color:#fff;
+
+    font-size:.9rem;
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.action-btn:hover{
+    background:#5d1f27;
+    transform:translateY(-2px);
+}
+
+/* ==========================================================
+                    GENERAL NOTIFICATIONS
+========================================================== */
+
+.notification-card{
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    margin-bottom:16px;
+    padding:18px 20px;
+
+    background:#fff;
+    border-radius:18px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.07);
+    transition:.3s;
+}
+
+.notification-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(0,0,0,.10);
+}
+
+.notif-icon{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    color:#fff;
+    font-size:1.35rem;
+}
+
+.sale{background:#b98a44;}
+.gift{background:#7a5b46;}
+.announcement{background:var(--maroon);}
+.info{background:#7b7b7b;}
+
+.notif-text{
+    flex:1;
+}
+
+.notif-text h3{
+    margin-bottom:6px;
+    font:700 1.6rem "Cormorant Garamond", serif;
+    color:var(--maroon);
+}
+
+.notif-text p{
+    margin-bottom:6px;
+    color:#666;
+    line-height:1.6;
+}
+
+.notif-text span{
+    color:#999;
+    font-size:.85rem;
+}
+
+/* ==========================================================
+                    NAVBAR BADGE
+========================================================== */
+
+.nav-icons button{
+    position:relative;
+}
+
+.notif-dot{
+    position:absolute;
+    top:5px;
+    right:6px;
+
+    width:10px;
+    height:10px;
+
+    border:2px solid #fff;
+    border-radius:50%;
+
+    background:#d84b4b;
+}
+
+/* ==========================================================
+                        EMPTY STATE
+========================================================== */
+
+.empty-state{
+    padding:60px 20px;
+    text-align:center;
+    color:#888;
+}
+
+.empty-state i{
+    margin-bottom:15px;
+    font-size:4rem;
+    color:#ccc;
+}
+
+.empty-state h3{
+    margin-bottom:8px;
+    font:700 2rem "Cormorant Garamond", serif;
+    color:var(--maroon);
+}
